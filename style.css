@@ -39,6 +39,7 @@ body {
     background: rgb(255, 255, 255, 0.3 ) !important;
 }
 
+/* Célula */
 .cell {
   width: 100px;
   height: 100px;
@@ -112,6 +113,36 @@ body {
   border-radius: 50%;
 }
 
+/* X */ 
+.cell.x::before,
+.cell.x::after {
+    content: "";
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background: white;
+    position: absolute;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+/* Circle */ 
+.cell.circle::before,
+.cell.circle::after {
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Mensagem de vitória */
 .winning-message {
   display: none;
   position: fixed;
