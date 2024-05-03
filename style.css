@@ -5,6 +5,10 @@
   font-family: cursive;
 }
 
+.logo-jogo-da-velha {
+    height: 200px;
+}
+
 h1 {
   text-align: center;
   margin-top: 20px;
@@ -175,4 +179,8 @@ body {
 .winning-message-text {
     color: white;
     font-size: 5rem;
+}
+
+.show-winning-message {
+    display: flex;
 }
