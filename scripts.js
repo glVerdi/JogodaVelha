@@ -80,6 +80,26 @@ const swapTurns = () => {
   setBoardHoverClass();
 };
 
+const makeRandomMove = () => {
+  const availableCells = [...cellElements].filter((cell) => {
+    return !cell.classList.contains("x") && !cell.classList.contains("circle");
+  });
+  const randomIndex = Math.floor(Math.random() * availableCells.length);
+  const cell = availableCells[randomIndex];
+  placeMark(cell, "circle");
+
+  const isWin = checkForWin("circle");
+  const isDraw = checkForDraw();
+
+  if (isWin) {
+    endGame(false);
+  } else if (isDraw) {
+    endGame(true);
+  } else {
+    swapTurns();
+  }
+};
+
 const handleClick = (e) => {
   // Colocar a marca (X ou Círculo)
   const cell = e.target;
@@ -100,6 +120,8 @@ const handleClick = (e) => {
   } else {
     // Mudar símbolo
     swapTurns();
+    // Fazer a máquina jogar
+    makeRandomMove();
   }
 };
 
